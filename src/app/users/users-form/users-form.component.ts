@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../users';
+import { UserService } from '../user.service';
 
 @Component({
 	selector: 'app-users-form',
@@ -8,7 +9,7 @@ import { User } from '../users';
 })
 export class UsersFormComponent implements OnInit {
 	 
-	user : User = new User;
+	user : User = new User();
     urlPhoto : string = "../../../assets/images/avatar.jpg";
 	eventSelected: any;
 
@@ -16,7 +17,11 @@ export class UsersFormComponent implements OnInit {
 
 	}
 
-	constructor() {
+	constructor(private userService : UserService) {
 
 	}
+
+    onSubmit() {
+        alert(this.user.name)
+    }
 }
