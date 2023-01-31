@@ -1,0 +1,30 @@
+<h1 class="mt-4 ml-2">Lista de Usuários</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 mt-2">
+            <button class="btn btn-warning" routerLink="/new-user">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Usuário</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    </tbody>
+                </table>      
+            </div>
+        </div>
+    </div>
+</div>
