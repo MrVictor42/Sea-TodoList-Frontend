@@ -22,9 +22,15 @@ export class UserService {
 		return this.httpClient.get<User[]>(`${ environment.baseURLUser }/list`);
 	}
 
-	getUser() : User {
-		const user : User = new User();
+	getCurrentUser(userId : number) : Observable<User> {
+		return this.httpClient.get<User>(`${ environment.baseURLUser }/current_user/${ userId }`);
+	}
 
-		return user;
+	update(user : User) : Observable<User> {
+		return this.httpClient.put<any>(`${ environment.baseURLUser }/update`, user);
+	}
+
+	delete(userId : number) : Observable<any> {
+		return this.httpClient.delete(`${ environment.baseURLUser }/delete/${ userId }`);
 	}
 }

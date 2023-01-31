@@ -21,6 +21,11 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.username }}</td>
                             <td>{{ user.email }}</td>
+                            <td>
+                                <button class="btn btn-primary" routerLink="/current-user/{{ user.userId }}">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>      

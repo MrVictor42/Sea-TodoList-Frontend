@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersNewComponent } from './users-new/users-new.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 @NgModule({
 	declarations: [
 		UsersNewComponent,
-		UserListComponent
+		UserListComponent,
+		UserDetailComponent
 	],
 	imports: [
 		CommonModule,
@@ -19,7 +21,8 @@ import { UserListComponent } from './user-list/user-list.component';
 	],
 	exports: [
 		UsersNewComponent,
-		UserListComponent
+		UserListComponent,
+		UserDetailComponent
 	]
 })
 export class UsersModule { }
