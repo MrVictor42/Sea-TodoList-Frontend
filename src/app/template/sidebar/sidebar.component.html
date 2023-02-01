@@ -2,19 +2,32 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Sistema</div>
-                <a class="nav-link" routerLink="/home"
-                    ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Home
+                <div class="sb-sidenav-menu-heading">Usuário</div>
+                <a class="nav-link" routerLink="/home">
+                    <div class="sb-nav-link-icon"><i class="fa fa-solid fa-user"></i></div>
+                    Editar Perfil
                 </a>
-                <div class="sb-sidenav-menu-heading">Usuários</div>
-                <a class="nav-link collapsed" routerLink="/new-user" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                    ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                <a class="nav-link collapsed" routerLink="/new-user" data-toggle="collapse"
+                    data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-solid fa-user-plus"></i></div>
                     Novo Usuário
                 </a>
-                <a class="nav-link collapsed" routerLink="/user-list" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                    ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                <a class="nav-link collapsed" routerLink="/user-list" data-toggle="collapse"
+                    data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Lista de Usuários
+                </a>
+            </div>
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Atividades</div>
+                <a class="nav-link" routerLink="/new-activity">
+                    <div class="sb-nav-link-icon"><i class="fa fa-solid fa-plus"></i></div>
+                    Nova Atividade
+                </a>
+                <a class="nav-link collapsed" routerLink="/activity-list" data-toggle="collapse"
+                    data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fa fa-solid fa-list"></i></div>
+                    Lista de Atividades
                 </a>
             </div>
         </div>

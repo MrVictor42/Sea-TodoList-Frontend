@@ -1,0 +1,38 @@
+<h1 class="mt-4 ml-2">Nova Atividade</h1>
+<div class="container">
+    <form #activityForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome da Atividade: </label>
+                    <input type="text" name="title" class="form-control" [(ngModel)]="activity.title" required="true" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Descrição da Atividade</label>
+                    <textarea class="form-control" name="description" rows="3" [(ngModel)]="activity.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+                <button type="submit" class="btn btn-danger ml-2" (click)="backToList()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

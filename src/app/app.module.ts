@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { UsersModule } from './users/users.module';
 import { UserService } from './users/user.service';
+import { AtivityModule } from './ativity/ativity.module';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { UserService } from './users/user.service';
 		AppRoutingModule,
 		TemplateModule,
 		UsersModule,
+		AtivityModule,
 		HttpClientModule
 	],
 	providers: [
