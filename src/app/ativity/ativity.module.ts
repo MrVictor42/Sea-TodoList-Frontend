@@ -5,11 +5,13 @@ import { AtivityRoutingModule } from './ativity-routing.module';
 import { NewActivityComponent } from './new-ativity/new-ativity.component';
 import { FormsModule } from '@angular/forms';
 import { ListAtivityComponent } from './list-ativity/list-ativity.component';
+import { EditAtivityComponent } from './edit-ativity/edit-ativity.component';
 
 @NgModule({
 	declarations: [
 		NewActivityComponent,
-  ListAtivityComponent
+		ListAtivityComponent,
+		EditAtivityComponent
 	],
 	imports: [
 		CommonModule,
@@ -17,7 +19,9 @@ import { ListAtivityComponent } from './list-ativity/list-ativity.component';
 		FormsModule
 	],
 	exports: [
-		NewActivityComponent
+		NewActivityComponent,
+		ListAtivityComponent,
+		EditAtivityComponent
 	]
 })
 export class AtivityModule { }

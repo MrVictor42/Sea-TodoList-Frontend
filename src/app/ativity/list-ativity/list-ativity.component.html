@@ -7,6 +7,16 @@
             </button>
         </div>
         <div class="row">
+            <div class="col-md-12 mt-2">
+                <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                    {{ successMessage }}
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12 mt-4">
                 <table class="table table-condensed table-hover">
                     <thead>
@@ -24,21 +34,41 @@
                                 <button class="btn btn-primary" routerLink="">
                                     <i class="fa fa-sharp fa-solid fa-eye"></i>
                                 </button>
-                                <button class="btn btn-warning ml-2" routerLink="">
+                                <button class="btn btn-warning ml-2"
+                                    routerLink="/edit-activity/{{ activity.activityId }}">
                                     <i class="fa fa-edit"></i>
                                 </button>
-                                <button class="btn btn-danger ml-2" routerLink="">
-                                    <i class="fa fa-trash"></i>
+                                <button type="button" class="btn btn-danger ml-2" data-toggle="modal"
+                                    data-target="#exampleModal" (click)="selectedActivity(activity)">
+                                    <i class="fa fa-solid fa-trash"></i>
                                 </button>
                             </td>
-                            <!-- <td>
-                                <button class="btn btn-primary" routerLink="/current-user/{{ user.userId }}">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </td> -->
                         </tr>
                     </tbody>
-                </table>      
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" *ngIf="activitySelected">
+                    Realmente Pretende Excluir a atividade {{ activitySelected.title }} e Suas Tarefas ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" (click)="deleteActivity()" data-dismiss="modal">
+                        Confirmar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
             </div>
         </div>
     </div>

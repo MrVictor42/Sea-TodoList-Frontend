@@ -21,4 +21,16 @@ export class ActivityService {
 	getActivityList() : Observable<Activity[]> {
 		return this.httpClient.get<Activity[]>(`${ environment.baseURLActivity }/list`);
 	}
+
+	getCurrentActivity(activityId : number) : Observable<Activity> {
+		return this.httpClient.get<Activity>(`${ environment.baseURLActivity }/current_activity/${ activityId }`);
+	}
+
+	update(activity : Activity) : Observable<Activity> {
+		return this.httpClient.put<Activity>(`${ environment.baseURLActivity }/update`, activity);
+	}
+
+	delete(activityId : number) : Observable<any> {
+		return this.httpClient.delete(`${ environment.baseURLActivity }/delete/${ activityId }`);
+	}
 }

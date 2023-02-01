@@ -11,7 +11,6 @@ import { User } from '../users';
 export class UserDetailComponent implements OnInit {
 	
 	user : User = new User();
-	success : boolean = false;
 	errors: String[] | null = [];
 
 	constructor(private userService : UserService, private activateRoute : ActivatedRoute, private router : Router) {
@@ -27,11 +26,9 @@ export class UserDetailComponent implements OnInit {
 
 	onSubmit() : void {
 		this.userService.update(this.user).subscribe(response => {
-			this.success = true;
 			this.errors = null;
 			this.router.navigate(['/user-list']);
 		}, errorResponse => {
-			this.success = false;
 			this.errors = errorResponse.error.errors;
 		});
     }
