@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from '../layout/layout.component';
 
 import { EditAtivityComponent } from './edit-ativity/edit-ativity.component';
 import { ListAtivityComponent } from './list-ativity/list-ativity.component';
 import { NewActivityComponent } from './new-ativity/new-ativity.component';
 
 const routes: Routes = [
-	{ path: 'new-activity', component: NewActivityComponent },
-	{ path: 'activity-list', component: ListAtivityComponent },
-	{ path: 'edit-activity/:activityId', component: EditAtivityComponent }
+	{ path: 'activity', component: LayoutComponent, children: [
+		{ path: 'new', component: NewActivityComponent },
+		{ path: 'list', component: ListAtivityComponent },
+		{ path: 'edit/:activityId', component: EditAtivityComponent },
+		{ path: '', redirectTo: '/activity/list', pathMatch: 'full' }
+	]}
 ];
 
 @NgModule({

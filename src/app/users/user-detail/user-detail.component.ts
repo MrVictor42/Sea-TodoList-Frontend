@@ -27,7 +27,7 @@ export class UserDetailComponent implements OnInit {
 	onSubmit() : void {
 		this.userService.update(this.user).subscribe(response => {
 			this.errors = null;
-			this.router.navigate(['/user-list']);
+			this.router.navigate(['/user/list']);
 		}, errorResponse => {
 			this.errors = errorResponse.error.errors;
 		});
@@ -35,11 +35,11 @@ export class UserDetailComponent implements OnInit {
 
 	deleteUser() : void {
 		this.userService.delete(this.user.userId).subscribe(response => {
-			this.router.navigate(['/user-list']);
+			this.router.navigate(['/user/list']);
 		});
 	}
 
 	backToList() : void {
-		this.router.navigate(['/user-list']);
+		this.router.navigate(['/user/list']);
 	}
 }

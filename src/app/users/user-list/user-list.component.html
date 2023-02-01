@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 mt-2">
-            <button class="btn btn-warning" routerLink="/new-user">
+            <button class="btn btn-warning" routerLink="/user/new">
                 <i class="fa fa-plus"></i> Novo
             </button>
         </div>
@@ -21,11 +21,6 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.username }}</td>
                             <td>{{ user.email }}</td>
-                            <!-- <td>
-                                <button class="btn btn-primary" routerLink="/current-user/{{ user.userId }}">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </td> -->
                         </tr>
                     </tbody>
                 </table>      

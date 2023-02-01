@@ -27,13 +27,13 @@ export class EditAtivityComponent implements OnInit {
 	onSubmit() : void {
 		this.activityService.update(this.activity).subscribe(response => {
 			this.errors = null;
-			this.router.navigate(['/activity-list']);
+			this.router.navigate(['/activity/list']);
 		}, errorResponse => {
 			this.errors = errorResponse.error.errors;
 		});
 	}
 
 	backToList() : void {
-		this.router.navigate(['/activity-list']);
+		this.router.navigate(['/activity/list']);
 	}
 }

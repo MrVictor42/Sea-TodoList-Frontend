@@ -22,7 +22,7 @@ export class NewActivityComponent {
 		this.activityService.save(this.activity).subscribe(response => {
 			this.success = true;
 			this.errors = null;
-			this.router.navigate(['/activity-list']);
+			this.router.navigate(['/activity/list']);
 		}, errorResponse => {
 			this.success = false;
 			this.errors = errorResponse.error.errors;
@@ -30,6 +30,6 @@ export class NewActivityComponent {
     }
 
 	backToList() : void {
-		this.router.navigate(['/activity-list']);
+		this.router.navigate(['/activity/list']);
 	}
 }

@@ -34,6 +34,6 @@ export class UsersNewComponent implements OnInit {
     }
 
 	backToList() : void {
-		this.router.navigate(['/user-list']);
+		this.router.navigate(['/user/list']);
 	}
 }
