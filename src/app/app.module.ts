@@ -13,6 +13,11 @@ import { UserService } from './users/user.service';
 import { AtivityModule } from './ativity/ativity.module';
 import { LoginComponent } from './login/login.component';
 
+import { TokenInterceptor } from './authentication/token.interceptor';
+import { AuthService } from './authentication/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ActivityService } from './ativity/activity.service';
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -30,7 +35,13 @@ import { LoginComponent } from './login/login.component';
 		FormsModule
 	],
 	providers: [
-		UserService
+		AuthService, {
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true
+		},
+		UserService,
+		ActivityService
 	],
 	bootstrap: [AppComponent]
 })

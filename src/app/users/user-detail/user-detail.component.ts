@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { User } from '../users';
+import { User } from '../../model/users';
+import { AuthService } from 'src/app/authentication';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,15 +14,14 @@ export class UserDetailComponent implements OnInit {
 	user : User = new User();
 	errors: String[] | null = [];
 
-	constructor(private userService : UserService, private activateRoute : ActivatedRoute, private router : Router) {
+	constructor(private userService : UserService, private authService : AuthService, private router : Router) {
 		
 	}
 
 	ngOnInit(): void {
-		const userId = this.activateRoute.snapshot.params['userId'];
-		this.userService.getCurrentUser(userId).subscribe(response => {
-			this.user = response;
-		});
+		this.authService.getAuthenticatedUser().subscribe(response => {
+            this.user = response;
+        });
 	}
 
 	onSubmit() : void {

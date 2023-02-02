@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Activity } from './activity';
+import { Activity } from '../model/activity';
 
 import { environment } from '../../enviroments/enviroments';
 
@@ -10,27 +10,29 @@ import { environment } from '../../enviroments/enviroments';
 })
 export class ActivityService {
 
+	activityBase : string = environment.baseApiURL + 'activity';
+
 	constructor(private httpClient : HttpClient) {
 
 	}
 
 	save(activity : Activity) : Observable<Activity> {
-		return this.httpClient.post<Activity>(`${ environment.baseURLActivity }/save`, activity);
+		return this.httpClient.post<Activity>(`${ this.activityBase }/save`, activity);
 	}
 
 	getActivityList() : Observable<Activity[]> {
-		return this.httpClient.get<Activity[]>(`${ environment.baseURLActivity }/list`);
+		return this.httpClient.get<Activity[]>(`${ this.activityBase }/list`);
 	}
 
 	getCurrentActivity(activityId : number) : Observable<Activity> {
-		return this.httpClient.get<Activity>(`${ environment.baseURLActivity }/current_activity/${ activityId }`);
+		return this.httpClient.get<Activity>(`${ this.activityBase }/current_activity/${ activityId }`);
 	}
 
 	update(activity : Activity) : Observable<Activity> {
-		return this.httpClient.put<Activity>(`${ environment.baseURLActivity }/update`, activity);
+		return this.httpClient.put<Activity>(`${ this.activityBase }/update`, activity);
 	}
 
 	delete(activityId : number) : Observable<any> {
-		return this.httpClient.delete(`${ environment.baseURLActivity }/delete/${ activityId }`);
+		return this.httpClient.delete(`${ this.activityBase }/delete/${ activityId }`);
 	}
 }
