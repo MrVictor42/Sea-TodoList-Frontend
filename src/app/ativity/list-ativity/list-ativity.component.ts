@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, User } from 'src/app/authentication';
 import { Activity } from '../../model/activity';
 import { ActivityService } from '../activity.service';
 
@@ -9,19 +10,23 @@ import { ActivityService } from '../activity.service';
 })
 export class ListAtivityComponent implements OnInit {
 
+	user : User = new User();
 	activities : Activity[] = [];
 	activitySelected : Activity = new Activity();
 	successMessage : string = "";
 	errorMessage : string = "";
 
-	constructor(private activityService : ActivityService) {
+	constructor(private activityService : ActivityService, private authService : AuthService) {
 
 	}
 
 	ngOnInit(): void {
-		this.activityService.getActivityList().subscribe(response => {
-			this.activities = response;
-		});
+		this.authService.getAuthenticatedUser().subscribe(response => {
+            this.user = response;
+			this.activityService.getActivityList(this.user.userId).subscribe(response => {
+				this.activities = response;
+			});
+        });
 	}
 
 	selectedActivity(activity : Activity) : void {

@@ -20,8 +20,8 @@ export class ActivityService {
 		return this.httpClient.post<Activity>(`${ this.activityBase }/save`, activity);
 	}
 
-	getActivityList() : Observable<Activity[]> {
-		return this.httpClient.get<Activity[]>(`${ this.activityBase }/list`);
+	getActivityList(userId : number) : Observable<Activity[]> {
+		return this.httpClient.get<Activity[]>(`${ this.activityBase }/list/${ userId }`);
 	}
 
 	getCurrentActivity(activityId : number) : Observable<Activity> {
