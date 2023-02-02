@@ -14,6 +14,7 @@ export class ListAtivityComponent implements OnInit {
 	activities : Activity[] = [];
 	activitySelected : Activity = new Activity();
 	successMessage : string = "";
+	statusActivity : string = "";
 	errorMessage : string = "";
 
 	constructor(private activityService : ActivityService, private authService : AuthService) {

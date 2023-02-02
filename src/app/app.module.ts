@@ -17,13 +17,14 @@ import { TokenInterceptor } from './authentication/token.interceptor';
 import { AuthService } from './authentication/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ActivityService } from './ativity/activity.service';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HomeComponent,
 		LayoutComponent,
-		LoginComponent
+		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -32,7 +33,8 @@ import { ActivityService } from './ativity/activity.service';
 		UsersModule,
 		AtivityModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
+		TaskModule
 	],
 	providers: [
 		AuthService, {

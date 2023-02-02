@@ -6,12 +6,14 @@ import { NewActivityComponent } from './new-ativity/new-ativity.component';
 import { FormsModule } from '@angular/forms';
 import { ListAtivityComponent } from './list-ativity/list-ativity.component';
 import { EditAtivityComponent } from './edit-ativity/edit-ativity.component';
+import { DetailActivityComponent } from './detail-activity/detail-activity.component';
 
 @NgModule({
 	declarations: [
 		NewActivityComponent,
 		ListAtivityComponent,
-		EditAtivityComponent
+		EditAtivityComponent,
+		DetailActivityComponent
 	],
 	imports: [
 		CommonModule,
@@ -21,7 +23,8 @@ import { EditAtivityComponent } from './edit-ativity/edit-ativity.component';
 	exports: [
 		NewActivityComponent,
 		ListAtivityComponent,
-		EditAtivityComponent
+		EditAtivityComponent,
+		DetailActivityComponent
 	]
 })
 export class AtivityModule { }

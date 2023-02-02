@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-2 mt-2">
             <button class="btn btn-warning" routerLink="/activity/new">
-                <i class="fa fa-plus"></i> Novo
+                <i class="fa fa-plus"></i> Nova Atividade
             </button>
         </div>
         <div class="row">
@@ -23,16 +23,23 @@
                         <tr>
                             <th>Nome da Atividade</th>
                             <th>Descrição da Atividade</th>
+                            <th>Status</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let activity of activities">
-                            <td>{{ activity.title }}</td>
+                            <td><a href="/activity/current-activity/{{ activity.activityId }}"><b>{{ activity.title }}</b></a></td>
                             <td>{{ activity.description }}</td>
+                            <td *ngIf="activity.status == 'Pendente'">
+                                <p class="text-warning"><b>{{ activity.status }}</b></p>
+                            </td>
+                            <td *ngIf="activity.status == 'Finalizado'">
+                                <p class="text-primary"><b>{{ activity.status }}</b></p>
+                            </td>
                             <td>
-                                <button class="btn btn-primary" routerLink="">
-                                    <i class="fa fa-sharp fa-solid fa-eye"></i>
+                                <button class="btn btn-success" routerLink="/task/new/{{ activity.activityId }}">
+                                    <i class="fa fa-sharp fa-solid fa-plus"></i>
                                 </button>
                                 <button class="btn btn-warning ml-2"
                                     routerLink="/activity/edit/{{ activity.activityId }}">
