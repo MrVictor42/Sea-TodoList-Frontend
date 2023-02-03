@@ -1,1 +1,104 @@
-<p>detail-activity works!</p>
+<h1 class="mt-4 ml-2">Atividade: {{ activity.title }}</h1>
+<div class="row mt-2">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success">
+            {{ success }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+            {{ erro }}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-2">
+            <button class="btn btn-warning" routerLink="/activity/edit/{{ activity.activityId }}">
+                <i class="fa fa-edit"></i> Editar Atividade
+            </button>
+            <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal">
+                <i class="fa fa-solid fa-trash"></i> Excluir Atividade
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <p><b> Descrição da Atividade: </b> {{ activity.description }} </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome da Tarefa</th>
+                            <th>Finalizada?</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let task of tasks">
+                            <td><b> {{ task.title }} </b></td>
+                            <td *ngIf="task.status == 'Pendente'">
+                                <i class="fas fa-check-square"></i>
+                            </td>
+                            <td *ngIf="task.status == 'Concluida'" class="text-success">
+                                <i class="fas fa-check-square"></i>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger ml-2" data-toggle="modal"
+                                    data-target="#deleteModalTask" (click)="selectedTask(task)">
+                                    <i class="fa fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Excluir Atividade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" *ngIf="activity">
+                    Realmente Pretende Excluir a atividade {{ activity.title }} e Suas Tarefas ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" (click)="deleteActivity()" data-dismiss="modal">
+                        Confirmar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModalTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Excluir Tarefa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngIf="taskSelected">
+                Realmente Pretende Excluir Esta Tarefa?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="deleteTask()" data-dismiss="modal">
+                    Confirmar
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
