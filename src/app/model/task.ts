@@ -4,7 +4,7 @@ export class Task {
 	[x: string]: any;
     taskId : number = 0;
     title : string = "";
-    status : string = "";
+    status : boolean = false;
     activityId : number = 0;
     activity : Activity = new Activity();
 }

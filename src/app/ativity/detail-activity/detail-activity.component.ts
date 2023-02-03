@@ -18,6 +18,7 @@ export class DetailActivityComponent implements OnInit {
 	tasks : Task[] = [];
 	success : string | null = "";
 	errors: String[] | null = [];
+	disabled : boolean = false;
 
 	constructor(
 		private activityService : ActivityService, 
@@ -57,6 +58,12 @@ export class DetailActivityComponent implements OnInit {
 		}, errorResponse => {
 			this.errors = ["Ocorreu um Erro ao Deletar a Tarefa"];
 			this.success = null;
+		});
+	}
+
+	updateStatusTask(task : Task) : void {
+		this.taskService.updateStatus(task.taskId).subscribe(response => {
+			task.status = !task.status;
 		});
 	}
 }

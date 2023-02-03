@@ -49,10 +49,10 @@
                 <tbody>
                     <tr *ngFor="let task of tasks">
                         <td><b> {{ task.title }} </b></td>
-                        <td *ngIf="task.status == 'Pendente'">
+                        <td *ngIf="!task.status">
                             <i class="fas fa-check-square"></i>
                         </td>
-                        <td *ngIf="task.status == 'Concluida'" class="text-success">
+                        <td *ngIf="task.status" class="text-success">
                             <i class="fas fa-check-square"></i>
                         </td>
                         <td>

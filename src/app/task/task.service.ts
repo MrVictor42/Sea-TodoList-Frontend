@@ -32,7 +32,11 @@ export class TaskService {
 		return this.httpClient.get<Task[]>(`${ this.taskBase }/list/${ activityId }`);
 	}
 
-	getCurrentTask(taskId : number ) : Observable<Task> {
+	getCurrentTask(taskId : number) : Observable<Task> {
 		return this.httpClient.get<Task>(`${ this.taskBase }/current_task/${ taskId }`);
+	}
+
+	updateStatus(taskId : number) : Observable<any> {
+		return this.httpClient.patch(`${ this.taskBase }/status/${ taskId }`, null);
 	}
 }
