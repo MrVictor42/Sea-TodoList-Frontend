@@ -1,7 +1,6 @@
-<h1 class="mt-4 ml-2">Nova Atividade</h1>
 <div class="container">
-    <form #activityForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="row">
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-2">
             <div class="col-md-12">
                 <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
                     {{ erro }}
@@ -9,18 +8,11 @@
             </div>
         </div>
         <div class="row">
+            <h3 class="mt-2"> Editar Tarefa </h3>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Título da Atividade: </label>
-                    <input type="text" name="title" class="form-control" [(ngModel)]="activity.title" required="true" />
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Descrição da Atividade</label>
-                    <textarea class="form-control" name="description" rows="3" [(ngModel)]="activity.description"></textarea>
+                    <label>Nome da Tarefa: </label>
+                    <input type="text" name="title" class="form-control" [(ngModel)]="task.title" required="true" />
                 </div>
             </div>
         </div>

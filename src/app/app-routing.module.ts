@@ -9,7 +9,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', component: LayoutComponent, canActivate: [AuthGuard], children: [
         { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-        { path: '', redirectTo: '/login', pathMatch: 'full' }  
+        { path: '', redirectTo: '/login', pathMatch: 'full' }
     ]}
 ];
 

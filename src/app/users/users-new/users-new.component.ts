@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class UsersNewComponent implements OnInit {
 	 
 	user : User = new User();
-	success : boolean = false;
 	errors: String[] | null = [];
 
 	ngOnInit(): void {
@@ -24,11 +23,9 @@ export class UsersNewComponent implements OnInit {
 
     onSubmit() : void {
 		this.userService.save(this.user).subscribe(response => {
-			this.success = true;
 			this.errors = null;
 			this.router.navigate(['/user-list']);
 		}, errorResponse => {
-			this.success = false;
 			this.errors = errorResponse.error.errors;
 		});
     }

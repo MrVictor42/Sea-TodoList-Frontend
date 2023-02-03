@@ -18,13 +18,14 @@ import { AuthService } from './authentication/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ActivityService } from './ativity/activity.service';
 import { TaskModule } from './task/task.module';
+import { TaskService } from './task/task.service';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HomeComponent,
 		LayoutComponent,
-		LoginComponent,
+		LoginComponent
 	],
 	imports: [
 		BrowserModule,
@@ -43,7 +44,8 @@ import { TaskModule } from './task/task.module';
 			multi: true
 		},
 		UserService,
-		ActivityService
+		ActivityService,
+		TaskService
 	],
 	bootstrap: [AppComponent]
 })
