@@ -19,6 +19,7 @@ export class NewTaskComponent implements OnInit {
 	errors: String[] | null = [];
 	activityId : number = 0;
 	taskSelected : Task = new Task();
+	newTitle : string = "";
 
 	constructor(
 		private activateRoute : ActivatedRoute, 
@@ -58,5 +59,30 @@ export class NewTaskComponent implements OnInit {
 
 	backToList() : void {
 		this.router.navigate(['/activity/list']);
+	}
+
+	deleteTask() : void {
+		this.taskService.delete(this.taskSelected.taskId).subscribe(response => {
+			this.success = "Atividade Excluida Com Sucesso";
+			this.errors = null;
+			this.ngOnInit();
+		}, errorResponse => {
+			this.errors = ["Ocorreu um Erro ao Deletar a Tarefa"];
+			this.success = null;
+		});
+	}
+
+	updateTask() : void {
+		this.taskSelected.title = this.newTitle;
+		this.taskService.update(this.taskSelected).subscribe(response => {
+			this.success = "Atividade Atualizada Com Sucesso";
+			this.errors = null;
+			this.newTitle = "";
+			this.ngOnInit();
+		}, errorResponse => {
+			this.errors = ["Ocorreu um Erro ao Atualizar a Tarefa"];
+			this.success = null;
+			this.newTitle = "";
+		});
 	}
 }
