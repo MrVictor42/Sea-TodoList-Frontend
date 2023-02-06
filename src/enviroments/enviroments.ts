@@ -1,4 +1,4 @@
 export const environment = {
-    baseApiURL : 'http://localhost:8000/api/',
+    baseApiURL : 'https://sea-todolist-backend.herokuapp.com/api/',
     production: false
 };
